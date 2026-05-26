@@ -1,0 +1,24 @@
+body {
+    background-color: white;
+    padding: 50px;
+    font-family: sans-serif;
+}
+
+.container {
+    background-color: white;
+    width: 380px;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+
+li {
+    margin-top: 10px;
+    list-style: none; 
+    display: flex;
+    
+}
+
+button {
+    margin-left: 5px;
+}
