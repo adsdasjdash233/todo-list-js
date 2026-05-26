@@ -1,5 +1,4 @@
-// 할 일 글자들이랑 완료 체크 여부 저장할 배열 2개 만들기
-// (나중에 매칭하기 편하게 인덱스 번호를 똑같이 맞춰서 쓸 예정)
+// 할 일 글자들이랑 완료 체크 여부 저장할 배열 2개 만듦
 let todoArray = []; 
 let doneArray = []; 
 
@@ -51,8 +50,8 @@ function render() {
         let text = todoArray[i];
         const isCompleted = doneArray[i];
         
-        // 완료 상태(true)라면 글자 앞에 체크 이미지 태그를 강제로 붙여버리기!
-        // 이미지 크기가 너무 크면 삐져나가니까 가로세로 20픽셀로 제한하고 가운데 정렬
+        // 완료 상태(true)라면 글자 앞에 체크 이미지 표시해줌
+        // 이미지 크기가 너무 크면 삐져나가니까 가로세로 20픽셀로 제한하고 가운데 정렬시ㅣ킴
         if (isCompleted === true) {
             text = "<img src='check.png' width='20' height='20' style='margin-right: 5px; vertical-align: middle;'> " + text;
         }
@@ -85,9 +84,9 @@ function toggleComplete(index) {
     render(); // 화면 다시 그리기
 }
 
-// 5. [삭제] 버튼 누르면 지워주는 함수
+//  삭제 버튼 누르면 지워주는 함수
 function deleteTodo(index) {
-    // splice 써서 두 배열의 똑같은 인덱스 위치 데이터를 딱 1개만 삭제!
+    // splice 써서 두 배열의 똑같은 인덱스 위치 데이터를 하나만 지욱ㄱ게 
     todoArray.splice(index, 1);
     doneArray.splice(index, 1);
     
@@ -95,12 +94,12 @@ function deleteTodo(index) {
     render(); // 화면 갱신
 }
 
-// 6. [수정] 버튼 누르면 그 줄만 입력창(input)으로 변하게 만드는 함수
+//  수정 버튼 누르면 그 줄만 입력창(input)으로 변하게 만드는 함수
 function editMode(index) {
     const ul = document.querySelector("#todo-list");
     const liList = ul.querySelectorAll("li");
     
-    // 고칠 때는 앞의 체크 이미지 없는 순수한 글자만 보여야 하므로 todoArray[index] 활용!
+    // 고칠 때는 앞의 체크 이미지 없는 순수한 글자만 보여야 하므로 todoArray[index] 활용
     // 해당 줄의 innerHTML을 통째로 input이랑 저장 버튼으로 갈아끼워버림
     liList[index].innerHTML = `
         <input type="text" id="edit-box" value="${todoArray[index]}">
@@ -108,12 +107,12 @@ function editMode(index) {
     `;
 }
 
-// 7. 수정 다 하고 [저장] 누르면 최종 반영하는 함수
+// 수정 다 하고 저장 누르면 최종 반영
 function saveEdit(index) {
     const editInput = document.querySelector("#edit-box");
     const newText = editInput.value;
 
-    // 수정할 때도 빈칸으로 저장하려고 하면 막기
+    //  빈칸으로 저장하려고 알림창 띄우기
     if (newText === "") {
         alert("내용을 입력하세요.");
         return;
