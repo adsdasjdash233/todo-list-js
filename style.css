@@ -1,0 +1,24 @@
+body {
+    background-color: white;
+    padding: 50px;
+    font-family: sans-serif;
+}
+
+.container {
+    background-color: white;
+    width: 380px;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+/* 리스트 한 줄 스타일 설정 */
+li {
+    margin-top: 10px;
+    list-style: none; /* 리스트 앞에 나오는 기본 점 삭제 */
+    display: flex;
+    
+}
+
+button {
+    margin-left: 5px;
+}
